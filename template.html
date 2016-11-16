@@ -1,0 +1,16 @@
+<div class="col-sm-12" ng-repeat="item in menu.items">
+  <div class="col-sm-2">
+    {{item.name}}
+  </div>
+  <div class="col-sm-2">
+    {{item.short_name}}
+  </div>
+  <div class="col-sm-6">
+    {{item.description}}
+  </div>
+  <div class="col-sm-2">
+    <button ng-click="menu.onRemove({index: $index});">
+      Don't want this one!
+    </button>
+  </div>
+</div>
