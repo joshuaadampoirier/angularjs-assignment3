@@ -16,14 +16,20 @@
 
     menu.search = function() {
       menu.message = "";
-      var promise = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
 
-      promise.then(function (foundItems) {
-        menu.foundItems = foundItems;
-        if (foundItems.length == 0) {
-          menu.message = "Nothing found";
-        }
-      });
+      if (menu.searchTerm != "") {
+        var promise = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
+
+        promise.then(function (foundItems) {
+          menu.foundItems = foundItems;
+          if (foundItems.length == 0) {
+            menu.message = "Nothing found";
+          }
+        });
+      }
+      else {
+        menu.message = "Nothing found";
+      }
     }
 
     menu.removeItem = function (itemIndex) {
